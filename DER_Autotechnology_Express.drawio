@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="JgQPWtAwGD_l7CNI0NKW">
+    <mxGraphModel dx="1717" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontStyle=1;fontSize=20;align=center;verticalAlign=middle;" value="DER — Autotechnology Express" vertex="1">
+          <mxGeometry height="40" width="500" x="420" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cliente" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="&lt;b&gt;CLIENTE&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; id_cliente: INT&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; nome: VARCHAR(100)&lt;br&gt;&lt;b&gt;NOT NULL, UNIQUE&lt;/b&gt; cpf: VARCHAR(14)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; telefone: VARCHAR(20)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; email: VARCHAR(100)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; endereco: VARCHAR(150)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; cidade: VARCHAR(60)" vertex="1">
+          <mxGeometry height="280" width="300" x="40" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="veiculo" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="&lt;b&gt;VEICULO&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; id_veiculo: INT&lt;br&gt;&lt;b&gt;FK, NOT NULL&lt;/b&gt; id_cliente: INT&lt;br&gt;&lt;b&gt;NOT NULL, UNIQUE&lt;/b&gt; placa: VARCHAR(7)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; marca: VARCHAR(50)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; modelo: VARCHAR(50)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; ano_fabricacao: INT&lt;br&gt;&lt;b&gt;NOT NULL, UNIQUE&lt;/b&gt; chassi: VARCHAR(17)" vertex="1">
+          <mxGeometry height="260" width="300" x="430" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="mecanico" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="&lt;b&gt;MECANICO&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; id_mecanico: INT&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; nome: VARCHAR(100)&lt;br&gt;&lt;b&gt;NOT NULL, UNIQUE&lt;/b&gt; cpf: VARCHAR(14)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; telefone: VARCHAR(20)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; email: VARCHAR(100)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; data_contratacao: DATE&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; funcao: VARCHAR(80)" vertex="1">
+          <mxGeometry height="280" width="300" x="430" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="ordem" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="&lt;b&gt;ORDEM_SERVICO&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; id_ordem: INT&lt;br&gt;&lt;b&gt;FK, NOT NULL&lt;/b&gt; id_veiculo: INT&lt;br&gt;&lt;b&gt;FK, NOT NULL&lt;/b&gt; id_mecanico: INT&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; data_abertura: DATETIME&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; estimativa_entrega: DATETIME&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; descricao: VARCHAR(255)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; valor_total: DECIMAL(10,2)&lt;br&gt;&lt;b&gt;NOT NULL&lt;/b&gt; status: VARCHAR(30)" vertex="1">
+          <mxGeometry height="300" width="340" x="900" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_cliente_veiculo" edge="1" parent="1" source="cliente" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;strokeWidth=2;fontSize=12;" target="veiculo" value="possui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_veiculo_ordem" edge="1" parent="1" source="veiculo" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;strokeWidth=2;fontSize=12;" target="ordem" value="possui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_mecanico_ordem" edge="1" parent="1" source="mecanico" style="edgeStyle=entityRelationEdgeStyle;html=1;rounded=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;strokeWidth=2;fontSize=12;" target="ordem" value="é responsável por">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
